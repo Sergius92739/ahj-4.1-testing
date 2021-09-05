@@ -1,5 +1,9 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/q5vw3wafh0sbbkfn/branch/master?svg=true)](https://ci.appveyor.com/project/Sergius92739/ahj-4-1-testing/branch/master)
 
+#### Deployment: https://sergius92739.github.io/ahj-4.1-testing/
+
+---
+
 ### Credit Card Validator
 
 #### Легенда
@@ -8,7 +12,7 @@
 
 Общий вид виджета должен выглядеть следующим образом:
 
-![](./pic/validator.png)
+![](./src/img/validator.png)
 
 Скриншот взят с сайта http://www.validcreditcardnumber.com.
 
