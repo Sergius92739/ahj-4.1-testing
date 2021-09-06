@@ -1,4 +1,3 @@
-import paySistem from './paySistem';
 import Validation from './Validation';
 
 /**
@@ -62,10 +61,13 @@ export default class RedrowHandler {
       if (this.validator.checkNumLength(value) && this.validator.checkLuhnAlgo(value)) {
         const shortName = this.getPaySistem(value);
         const fullName = this.getFullName(shortName);
-        this.clean();
-        this.removeMes();
-        this.addMes(`The card is valid, the ${fullName} payment system`, 'colorValid', 'bgValid');
-        this.addCheckedTransparent(shortName);
+        if (fullName) {
+          this.clean();
+          this.removeMes();
+          this.addMes(`The card is valid, the ${fullName} payment system`, 'colorValid', 'bgValid');
+          this.addCheckedTransparent(shortName);
+        }
+        this.addMes('the payment system was not found', 'colorInvalid', 'bgInvalid');
       } else {
         this.addMes('The card is not valid', 'colorInvalid', 'bgInvalid');
         this.clean();
@@ -81,10 +83,14 @@ export default class RedrowHandler {
    * @param {Object} data объект хранящий данные пл. систем
    * @returns string, значение свойства fullName в объекте paySistem
    */
-  getFullName(shortName, data = paySistem) {
+  getFullName(shortName, data = this.paySistem) {
     const tmp = Object.values(data);
-    this.fullName = tmp.find((e) => e.name === shortName).fullName;
-    return this.fullName;
+    const temp = tmp.find((e) => e.name === shortName);
+    if (temp) {
+      this.fullName = temp.fullName;
+      return this.fullName;
+    }
+    return '';
   }
 
   /**
