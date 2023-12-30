@@ -120,7 +120,10 @@ export default class RedrowHandler {
   getPaySistem(value) {
     const tmp = value.split('');
     const temp = tmp[0] + tmp[1];
+    // console.log(tmp, temp);
     if (this.paySistem[tmp[0]] || this.paySistem[temp]) {
+      // console.log(this.paySistem[tmp[0]], this.paySistem[temp]);
+      // console.log(this.validator.checkPaySystem(tmp[0], this.validator.checkPaySystem(temp)));
       return this.validator.checkPaySystem(tmp[0]) || this.validator.checkPaySystem(temp);
     }
     return false;
