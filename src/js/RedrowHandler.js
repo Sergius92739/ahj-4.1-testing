@@ -67,7 +67,6 @@ export default class RedrowHandler {
           this.addMes(`The card is valid, the ${fullName} payment system`, 'colorValid', 'bgValid');
           this.addCheckedTransparent(shortName);
         }
-        this.addMes('the payment system was not found', 'colorInvalid', 'bgInvalid');
       } else {
         this.addMes('The card is not valid', 'colorInvalid', 'bgInvalid');
         this.clean();
